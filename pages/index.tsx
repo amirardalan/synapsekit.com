@@ -46,8 +46,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({ data }) {
 
-  console.log(data)
-
   const styleHome = css({
     display: 'flex',
     flexDirection: 'column',
