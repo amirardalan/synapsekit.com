@@ -1,0 +1,40 @@
+{
+  "short_name": "SynapseKit",
+  "name": "SynapseKit – NFT Collection",
+  "icons": [
+    {
+      "src": "/touch-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/touch-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "https://synapsekit.com",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#000000",
+  "shortcuts": [
+    {
+      "name": "SynapseKit",
+      "short_name": "SynapseKit",
+      "description": "A collection of NFTs from the Metaverse.",
+      "url": "https://synapsekit.com",
+      "icons": [{ "src": "/touch-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "description": "SynapseKit",
+  "screenshots": [
+    {
+      "src": "/thumbnail.jpg",
+      "type": "image/png",
+      "sizes": "540x720"
+    }
+  ]
+}
