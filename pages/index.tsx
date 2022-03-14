@@ -22,17 +22,31 @@ export const fetchData = async (url: string, options: Record<string, unknown>) =
 export const getStaticProps: GetStaticProps = async () => {
   const url = `${OPENSEA_WALLET_ENDPOINT}`
   const options = { method: 'GET', headers: headersConfig }
-  const data = await fetchData(url, options)
+  const rawData = await fetchData(url, options)
 
-  if (!data) {
+  if (!rawData) {
     return null
   }
 
-  return { props: {data: data} }
+  const data = rawData.assets.map(({ id, image_url, name, description, permalink, collection, num_sales }) => ({
+    ["id"]: id,
+    ["image_url"]: image_url,
+    ["name"]: name,
+    ["description"]: description,
+    ["permalink"]: permalink,
+    ["collection"]: collection.name,
+    ["created_date"]: collection.created_date,
+    ["num_sales"]: num_sales
+  }))
 
+  
+  return { props: { data: data } }
 }
 
+
 export default function Home({ data }) {
+
+  console.log(data)
 
   const styleHome = css({
     display: 'flex',
