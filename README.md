@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [synapsekit.com](https://synapsekit.com)
 
-## Getting Started
+An NFT Gallery built with Next.js and OpenSea. Designed, built, and maintained by [@amirardalan](https://github.com/amirardalan)
 
-First, run the development server:
+### Built with:
+
+[Next.js](https://github.com/vercel/next.js/)  
+[Emotion](https://github.com/emotion-js/emotion)  
+[OpenSea](https://docs.opensea.io/reference/api-overview)
+
+---
+
+## Local Development: 
+
+1. Create an `.env` file for local environment variables. Start with the Site URL and updating updating your timezone:
+
+```
+# Site URL
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# OpenSea
+OPENSEA_API_KEY=your_api_key_here
+OPENSEA_WALLET_ADDRESS=your_wallet_address_here
+```
+Add additional local environment variables as needed. Create a version of this for your staging and production environments as needed, these are usually stored on your server.
+
+2. Install depencies by running `yarn`
+
+3. Run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Optionally, create a local copy of a production build. (useful for testing `generateSitemap.mjs` configuration):
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+yarn build
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Testing
 
-## Learn More
+- [Jest](jestjs.io/) is configured in `jest.config.ts` and included in the `package.json` build script.
+- [React Testing Library](https://github.com/testing-library/react-testing-library) is included in `jest.setup.ts`.
+- Verbose test suites will be run and logged at build time.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Run Jest manually:  
+`yarn test`
