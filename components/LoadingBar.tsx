@@ -16,7 +16,7 @@ export default function LoadingBar() {
   const styleLoadingBarProgress = css({
     height: 'inherit',
     width: 0,
-    backgroundColor: 'var(--color-link)',
+    backgroundColor: 'var(--color)',
     animation: 'loading 3s',
     '@keyframes loading': {
       '0%': {
@@ -37,9 +37,5 @@ export default function LoadingBar() {
     </div>
   )
 
-  return (
-    <>
-      { isLoading ? <RenderLoadingBar /> : null }
-    </>
-  )
+  return <>{ isLoading ? <RenderLoadingBar /> : null }</>
 } 

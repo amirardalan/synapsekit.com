@@ -2,7 +2,7 @@ import { generateSlug } from '@/utils/generateSlug'
 
 const WALLET_ADDRESS = process.env.OPENSEA_WALLET_ADDRESS
 const X_API_KEY = process.env.OPENSEA_API_KEY
-const OPENSEA_WALLET_ENDPOINT = `https://api.opensea.io/api/v1/assets?owner=${WALLET_ADDRESS}&order_direction=desc&limit=20`
+const OPENSEA_WALLET_ENDPOINT = `https://api.opensea.io/api/v1/assets?owner=${WALLET_ADDRESS}&order_direction=desc&limit=50`
 const options = { method: 'GET', headers: { Accept: 'application/json', 'X-API-KEY': `${X_API_KEY}` }}
 
 export const getNftAssets = async () => {
@@ -26,9 +26,6 @@ export const getNftAssets = async () => {
 }
 
 export const getApiRoute = async () => {
-  return fetch(OPENSEA_WALLET_ENDPOINT, {
-    method: 'GET',
-    headers: { Accept: 'application/json', 'X-API-KEY': `${X_API_KEY}` }
-  })
+  return fetch(OPENSEA_WALLET_ENDPOINT, options)
 }
 
