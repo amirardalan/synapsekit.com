@@ -8,7 +8,7 @@ import { title } from '@/data/content'
 const URL = process.env.NEXT_PUBLIC_SITE_URL
 const options = { 
   method: "GET",
-  headers: { Accept: "application/json; charset=UTF-8" },
+  headers: { Accept: 'application/json, text/plain, */*' },
   'User-Agent': '*',
 }
 
