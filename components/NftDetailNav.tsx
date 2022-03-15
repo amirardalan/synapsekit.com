@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useCallback } from 'react'
 import Router, { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -16,27 +16,20 @@ export default function NftDetailNav({ assets, asset }) {
   const displayPrev = hasPrev ? '' : 'hidden'
   const displayNext = hasNext ? '' : 'hidden'
 
-  const [loading, setLoading] = useState(false)
+  const handleArrowKeyEvent = (e: { key: string }) => {
+    if(e.key === 'ArrowLeft') {
+      router.push('/'+assets[navPointer-1].slug)
+    } else if (e.key === 'ArrowRight') {
+      router.push('/'+assets[navPointer+1].slug)
+    }
+  }
 
   useEffect(() => {
-    const start = () => { setLoading(true) }
-    const end = () => { setLoading(false) }
-    Router.events.on("routeChangeStart", start)
-    Router.events.on("routeChangeComplete", end)
-    Router.events.on("routeChangeError", end)
-    document.addEventListener("keyup", (e) => {
-      if(e.key === 'ArrowLeft') {
-        router.push('/'+assets[navPointer-1].slug)
-      } else if (e.key === 'ArrowRight') {
-        router.push('/'+assets[navPointer+1].slug)
-      }
+    window.addEventListener("keyup", (e) => {
+      handleArrowKeyEvent(e)
     })
-    return () => {
-      Router.events.off("routeChangeStart", start)
-      Router.events.off("routeChangeComplete", end)
-      Router.events.off("routeChangeError", end)
-    }
-  }, [assets, navPointer, router])
+    return () => window.removeEventListener("keyup", handleArrowKeyEvent)
+  })
 
   const styleDetailNavWrapper = css({
     display: 'flex',
