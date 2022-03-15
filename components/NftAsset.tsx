@@ -1,5 +1,7 @@
 import { css } from '@emotion/react'
+import Link from 'next/link'
 import Image from 'next/image'
+import { generateSlug } from '@/utils/generateSlug'
 
 export default function NftAsset(asset: any) {
 
@@ -10,9 +12,12 @@ export default function NftAsset(asset: any) {
     }
   })
 
+  const slugUrl = generateSlug(asset.name)
+
+
   return (
-    <div css={styleNftAsset}>
-      <a href={asset.permalink} target="_blank" rel="noopener noreferrer">
+    <Link href={`${slugUrl}`} passHref>
+      <a css={styleNftAsset} aria-label={asset.name}>
         <Image
           src={asset.image_url}
           alt={asset.name}
@@ -23,6 +28,6 @@ export default function NftAsset(asset: any) {
           {asset.name}
         </p>
       </a>
-    </div>
+    </Link>
   )
 }
