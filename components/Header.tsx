@@ -2,7 +2,6 @@ import { css } from '@emotion/react'
 import Navigation  from '@/components/Navigation'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
-import { nav } from '@/data/content'
 
 import { GetStaticProps } from 'next'
 import dynamic from 'next/dynamic'
@@ -10,10 +9,6 @@ import dynamic from 'next/dynamic'
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), {
   ssr: false
 })
-
-export const getStaticProps: GetStaticProps = async () => {
-  return { props: { data: nav } }
-}
 
 
 const Header = ({ toggleTheme }) => {

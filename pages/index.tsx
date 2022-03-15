@@ -2,49 +2,9 @@ import { css } from '@emotion/react'
 import Container from '@/components/Container'
 import NftCollection from '@/components/NftCollection'
 import { home } from '@/data/content'
-import { GetStaticProps } from 'next'
-
-const WALLET_ADDRESS = process.env.OPENSEA_WALLET_ADDRESS
-const X_API_KEY = process.env.OPENSEA_API_KEY
-const OPENSEA_WALLET_ENDPOINT = `https://api.opensea.io/api/v1/assets?owner=${WALLET_ADDRESS}&order_direction=desc&limit=20`
-const headersConfig = { Accept: 'application/json', 'X-API-KEY': `${X_API_KEY}` }
-
-export const fetchData = async (url: string, options: Record<string, unknown>) => {
-  const response = await fetch(url, {
-    headers: headersConfig,
-    ...options,
-  })
-  const data = await response.json()
-  
-  return data
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const url = `${OPENSEA_WALLET_ENDPOINT}`
-  const options = { method: 'GET', headers: headersConfig }
-  const rawData = await fetchData(url, options)
-
-  if (!rawData) {
-    return null
-  }
-
-  const data = rawData.assets.map(({ id, image_url, name, description, permalink, collection, num_sales }) => ({
-    ["id"]: id,
-    ["image_url"]: image_url,
-    ["name"]: name,
-    ["description"]: description,
-    ["permalink"]: permalink,
-    ["collection"]: collection.name,
-    ["created_date"]: collection.created_date,
-    ["num_sales"]: num_sales
-  }))
-
-  
-  return { props: { data: data } }
-}
 
 
-export default function Home({ data }) {
+export default function Home() {
 
   const styleHome = css({
     display: 'flex',
@@ -73,7 +33,7 @@ export default function Home({ data }) {
     <Container title={home.meta.title}>
       <main css={styleHome}>
         <div css={styleGridContainer}>
-          <NftCollection data={data} />
+          <NftCollection/>
         </div>
       </main>
     </Container>
