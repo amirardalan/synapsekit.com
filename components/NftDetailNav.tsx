@@ -24,7 +24,7 @@ export default function NftDetailNav({ assets, asset }) {
         router.push('/'+handleNext)
       }
     })
-  })
+  },[handleNext, handlePrev, router])
 
   const styleDetailNavWrapper = css({
     display: 'flex',
