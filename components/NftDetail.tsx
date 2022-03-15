@@ -42,8 +42,8 @@ export default function NftAsset({ asset }) {
         <Image
           src={asset.image_url}
           alt={asset.name}
-          width={512}
-          height={512}
+          width={400}
+          height={400}
         />
       </div>
       <div css={styleInfoPanel}>
