@@ -7,12 +7,15 @@ export default function NftAsset({ nft }) {
     marginTop: '2rem',
     display: 'flex',
     flexDirection: 'row',
-    '@media(max-width: 768px)': {
-      flexDirection: 'column',
-    },
     div: {
       maxWidth: '50%',
-    }
+    },
+    '@media(max-width: 768px)': {
+      flexDirection: 'column',
+      div: {
+        maxWidth: 'unset',
+      },
+    },
   })
 
   const styleDetailImage = css({
