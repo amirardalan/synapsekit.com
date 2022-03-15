@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import Image from 'next/image'
 
-export default function NftAsset({ nft }) {
+export default function NftAsset({ asset }) {
 
   const styleDetailWrapper = css({
     marginTop: '2rem',
@@ -40,8 +40,8 @@ export default function NftAsset({ nft }) {
     <div css={styleDetailWrapper}>
       <div css={styleDetailImage}>
         <Image
-          src={nft.image_url}
-          alt={nft.name}
+          src={asset.image_url}
+          alt={asset.name}
           width={512}
           height={512}
         />
@@ -49,13 +49,13 @@ export default function NftAsset({ nft }) {
       <div css={styleInfoPanel}>
         <ul>
           <li><h1 className="pageHeading">
-            {nft.name}
+            {asset.name}
           </h1></li>
-          <li><h2>{nft.collection}</h2></li>
-          <li><p className="desc">{nft.description}</p></li>
+          <li><h2>{asset.collection}</h2></li>
+          <li><p className="desc">{asset.description}</p></li>
           <li>
             <a
-              href={nft.permalink}
+              href={asset.permalink}
               target="_blank"
               rel="noopener noreferrer"
             >

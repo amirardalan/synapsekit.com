@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getNftAssets } from '@/lib/opensea'
-import Link from 'next/link'
 import Container from '@/components/Container'
 import NftDetail from '@/components/NftDetail'
+import NftDetailNav from '@/components/NftDetailNav'
 import { title } from '@/data/content'
 
 
@@ -16,23 +16,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const assets = await getNftAssets()
-  
-  const assetIndex = assets.findIndex((
-    x: { slug: Array<string> }) => x.slug === params.slug
-  )
-  const asset = assets[assetIndex]
-  return { props: { nft: asset } }
+  const currentAsset = assets.findIndex((x: { slug: Array<string> }) => x.slug === params.slug)
+  const assetArr = assets
+  const asset = assets[currentAsset]
+  return { props: { asset: asset, assets: assetArr } }
 }
 
-export default function Detail({ nft }) {
+export default function Detail({ asset, assets }) {
   return (
-    <Container title={`${title} - ${nft.name}`}>
-      <Link href='/'>
-        <a aria-label="Back to Collection">
-          ← Collection
-        </a>
-      </Link>
-      <NftDetail nft={nft} />
+    <Container title={`${title} - ${asset.name}`}>
+      <NftDetailNav asset={asset} assets={assets} />
+      <NftDetail asset={asset} />
     </Container>
   )
 }

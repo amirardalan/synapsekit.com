@@ -201,6 +201,9 @@ export function GlobalStyles () {
           display: 'flex',
           justifyContent: 'center',
         },
+        '.hide': {
+          display: 'none'
+        }
       }} />
       <Global styles={{
         // Text Highlighting
