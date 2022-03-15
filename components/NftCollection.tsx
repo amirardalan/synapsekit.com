@@ -11,8 +11,6 @@ export default function NftCollection() {
     return null
   }
 
-  console.log(data)
-
   return data.nfts.map((asset: { id: number }) => (
     <NftAsset key={asset.id} {...asset} />
   ))
