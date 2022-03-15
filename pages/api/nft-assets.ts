@@ -24,5 +24,5 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     'public, s-maxage=86400, stale-while-revalidate=43200'
   )
 
-  return res.status(200).json(JSON.stringify({ nfts }))
+  return res.status(200).json(JSON.stringify(nfts))
 }
