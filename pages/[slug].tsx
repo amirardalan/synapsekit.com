@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(`${URL}/api/nft-assets/`)
+  const res = await fetch(`${URL}/api/nft-assets`)
   const assets = await res.json()
   const assetIndex = assets.nfts.findIndex((
     x: { slug: Array<string> }) => x.slug === params.slug
