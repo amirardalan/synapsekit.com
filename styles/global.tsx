@@ -203,6 +203,9 @@ export function GlobalStyles () {
         },
         '.hide': {
           display: 'none'
+        },
+        '.hidden': {
+          visibility: 'hidden'
         }
       }} />
       <Global styles={{

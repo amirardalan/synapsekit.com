@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { useEffect } from 'react'
+import { useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -13,33 +13,30 @@ export default function NftDetailNav({ assets, asset }) {
   const hasNext = navPointer < assets.length-1
   const handlePrev = hasPrev ? assets[navPointer-1].slug : asset.slug
   const handleNext = hasNext ? assets[navPointer+1].slug : asset.slug
-  const displayPrev = hasPrev ? '' : 'hide'
-  const displayNext = hasNext ? '' : 'hide'
+  const displayPrev = hasPrev ? '' : 'hidden'
+  const displayNext = hasNext ? '' : 'hidden'
 
-  useEffect(() => {
-    document.addEventListener("keydown", (e) => {
-      if(e.key === 'ArrowLeft') {
-        router.push('/'+handlePrev)
-      } else if (e.key === 'ArrowRight') {
-        router.push('/'+handleNext)
-      }
-    })
-  },[handleNext, handlePrev, router])
+  useEffect(
+    () => {
+      document.addEventListener("keyup", (e) => {
+        if(e.key === 'ArrowLeft') {
+          router.push('/'+assets[navPointer-1].slug)
+        } else if (e.key === 'ArrowRight') {
+          router.push('/'+assets[navPointer+1].slug)
+        }
+      })
+    },
+    [router],
+  )
 
   const styleDetailNavWrapper = css({
     display: 'flex',
-    justifyContent: hasPrev ? 'space-between' : 'right',
+    justifyContent: 'space-between',
     alignItems: 'center',
     a: {
       display: 'flex',
-      '&.prev': {
-        alignSelf: 'flex-end',
-      },
-      '&.next': {
-        alignSelf: 'flex-end',
-      },
-      '&.hide': {
-        display: 'none'
+      '&.hidden': {
+        visibility: 'hidden'
       },
     },
     '.controls': {
@@ -62,13 +59,13 @@ export default function NftDetailNav({ assets, asset }) {
     <div css={styleDetailNavWrapper}>
       <Link href={'/'+handlePrev}>
         <a className={'prev '+displayPrev} aria-label="Previous">
-          ← Previous
+        ⇽{hasPrev && navPointer < 10 ? '0'+navPointer : navPointer} Prev
         </a>
       </Link>
       <div className="controls"><div>← ⌨️ →</div>arrow keys enabled</div>
       <Link href={'/'+handleNext}>
         <a className={'next '+displayNext} aria-label="Next">
-          Next →
+          Next {hasNext && navPointer < 10 ? '0'+(navPointer+1) : (navPointer+1)}⇾
         </a>
       </Link>
     </div>
