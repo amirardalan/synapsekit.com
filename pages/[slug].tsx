@@ -1,6 +1,8 @@
-import { css } from '@emotion/react'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Link from 'next/link'
 import Container from '@/components/Container'
+import NftDetail from '@/components/NftDetail'
+import { title } from '@/data/content'
 
 
 const URL = process.env.NEXT_PUBLIC_SITE_URL
@@ -25,16 +27,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function Detail({ nft }) {
-  
-  const styleDetailWrapper = css({
-    display: 'flex',
-  })
-
   return (
-    <Container title={`SynapseKit - ${nft.name}`}>
-      <div css={styleDetailWrapper}>
-        Detail goes here
-      </div>
+    <Container title={`${title} - ${nft.name}`}>
+      <Link href='/'>
+        <a aria-label="Back to Collection">
+          ← Collection
+        </a>
+      </Link>
+      <NftDetail nft={nft} />
     </Container>
   )
 }

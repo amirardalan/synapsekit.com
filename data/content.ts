@@ -1,12 +1,4 @@
-import { themeLight, themeDark } from "@/styles/theme"
-
-export const logo = {
-  alt: 'Synapse Kit Logo',
-}
-
-export const nav = {
-  title: 'SynapseKit',
-}
+export const title = 'SynapseKit'
 
 export const home = {
   meta: {
@@ -20,7 +12,7 @@ export const about = {
   meta: {
     title: 'About – SynapseKit',
   },
-  content: 'Cool story, bro.'
+  content: `There's nothing here yet.`
 }
 
 export const nft= {
@@ -49,7 +41,7 @@ export const error = {
 
 export const footer = {
   logo: {
-    alt: 'Synase Kit'
+    alt: 'SynaseKit'
   },
   copyright: {
     text: 'Copyright ©',

@@ -187,10 +187,11 @@ export function GlobalStyles () {
           '.pageHeading': {
             marginBottom: '1rem',
             fontFamily: 'var(font-secondary)',
-            fontSize: 'calc(2.2vw + 2.2vh)',
+            fontSize: 35,
             WebkitMarqueeIncrement: '0vw',
-            fontWeight: 900,
-            textAlign: 'center',
+            '@media (max-width: 768px)': {
+              fontSize: 24,
+            },
           },
         }
       }} />
