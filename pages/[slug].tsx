@@ -6,7 +6,11 @@ import { title } from '@/data/content'
 
 
 const URL = process.env.NEXT_PUBLIC_SITE_URL
-const options = { method: "GET", headers: { Accept: "application/json; charset=UTF-8" }}
+const options = { 
+  method: "GET",
+  headers: { Accept: "application/json; charset=UTF-8" },
+  'User-Agent': '*',
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`${URL}/api/nft-assets`, options)
