@@ -4,7 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useSwipeable } from 'react-swipeable'
 
+
 export default function NftAsset({ asset, assets }) {
+
+  const router = useRouter()
 
   const navPointer = assets.findIndex((x: { slug: Array<string> }) => x.slug === asset.slug)
   const hasVideo = asset?.animation_url && asset?.animation_url.endsWith('.mp4')
@@ -26,27 +29,9 @@ export default function NftAsset({ asset, assets }) {
     if (!hasNext) { return 'Next .00 *' }
   }
 
-  const router = useRouter()
-  const config = {
-    delta: 10,
-    preventDefaultTouchmoveEvent: true,
-    trackTouch: true,
-    trackMouse: false,
-    rotationAngle: 0,
-  }
-
   const handlers = useSwipeable({
     onSwipedRight: () => router.push('/'+handlePrev),
     onSwipedLeft: () => router.push('/'+handleNext),
-    delta: 10,
-    preventDefaultTouchmoveEvent: true,
-    trackTouch: true,
-    trackMouse: false,
-    rotationAngle: 0,
-  })
-
-  const handleSwipeRight = useSwipeable({
-    onSwipedRight: () => alert("User Swiped Right"),
     delta: 10,
     preventDefaultTouchmoveEvent: true,
     trackTouch: true,
