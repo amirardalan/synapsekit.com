@@ -20,6 +20,10 @@ export default function NftAsset({ asset }) {
 
   const styleDetailImage = css({
     marginRight: '2rem',
+    '.videoWrapper': {
+      maxheight: 400,
+      maxWidth: 400,
+    },
     '@media(max-width: 768px)': {
       marginBottom: '2rem',
       marginRight: 0,
@@ -42,9 +46,11 @@ export default function NftAsset({ asset }) {
     <div css={styleDetailWrapper}>
       <div css={styleDetailImage}>
         {hasVideo ?
-        <video width={400} height={400} controls muted autoPlay>
-          <source src={asset.animation_url} type="video/mp4" />
-          </video> :
+        <div className="videoWrapper">
+          <video width="100%" height="100%" controls muted autoPlay loop webkit-playsinline playsInline>
+            <source src={asset.animation_url} type="video/mp4" />
+          </video>
+        </div> :
         <Image
           src={asset.image_url}
           alt={asset.name}

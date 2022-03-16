@@ -29,11 +29,15 @@ export default function NftDetailNav({ assets, asset }) {
         color: 'var(--color-neutral)',
         pointerEvents: 'none'
       },
+    },
+    '.gridControls': {
+      display: 'flex',
+      alignItems: 'center',
       fontSize: 12,
       textTransform: 'uppercase',
       span: {
-        fontSize: 16,
-        lineHeight: '.8rem',
+        fontSize: 17,
+        marginTop: -1,
         marginRight: '.2rem'
       }
     },
@@ -50,7 +54,7 @@ export default function NftDetailNav({ assets, asset }) {
       '@media(max-width: 1024px)': {
         display: 'none'
       }
-    }
+    },
   })
 
   const renderPrevLink = () => {
@@ -85,8 +89,8 @@ export default function NftDetailNav({ assets, asset }) {
         </a>
       </Link>
       <Link href='/'>
-        <a aria-label="Home">
-        <span>⊞</span> Grid
+        <a className="gridControls" aria-label="Home">
+          <span>⊞</span> Grid
         </a>
       </Link>
       <Link href={'/'+handleNext}>
