@@ -34,14 +34,16 @@ export default function NftAsset(asset: any) {
     },
     '.assetNameMobile': {
       display: 'none',
-      marginBottom: '.5rem',
       padding: 0,
       color: 'var(--color-text)',
       textAlign: 'left',
       fontSize: 10,
       lineHeight: '.8rem',
-      '@media(max-width: 768px)': {
+      '@media(max-width: 1024px)': {
         display: 'block',
+      },
+      '@media(max-width: 480px)': {
+        marginBottom: '.5rem',
       }
     }
   })
