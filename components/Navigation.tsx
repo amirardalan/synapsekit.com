@@ -1,4 +1,4 @@
-import { css } from '@emotion/react'
+import { css, useTheme } from '@emotion/react'
 import { useState } from 'react'
 import Link from '@/components/Link'
 import Logo from '@/components/Logo'
@@ -7,42 +7,57 @@ import { nav } from '@/data/navigation'
 
 export default function Navigation() {
   
+  const theme: any = useTheme()
+  const isDarkTheme = theme.active === 'dark'
+  
   const styleMainNav = css({
     display: 'flex',
     alignItems: 'center',
+    marginRight: '1.5rem',
     fontSize: 14,
     a: {
-      margin: '0 1rem',
+      margin: '0 1.5rem',
       color: 'var(--color-text)',
-      textDecoration: 'none',
     },
     '@media(max-width: 768px)': {
       display: 'none',
     }
   })
   const styleMobileNavWrapper = css ({
-    paddingTop: '6rem',
-    opacity: '.95',
-    alignItems: 'center',
+    padding: '2rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'left',
     justifyContent: 'center',
     position: 'absolute',
     height: '105vh',
-    width: '100vw',
+    width: '75vw',
     background: 'var(--color-bg)',
     top: 0,
-    left: 0,
+    right: 0,
+    '.closeArea': {
+      animation: 'fadeIn80 .6s ease',
+      opacity: '.80',
+      height: '100%',
+      width: 200,
+      background: 'var(--color)',
+      border: 'none',
+      position: 'absolute',
+      left: -200,
+      top: 0,
+      cursor: 'pointer',
+      '@media (max-width: 768px) and (max-height: 600px)': {
+        width: 400,
+        left: -400
+      }
+    },
     '@media(min-width: 769px)': {
       display: 'none',
     },
-    '@media (max-width: 768px) and (max-height: 600px)': {
-      flexDirection: 'row-reverse',
-      justifyContent: 'space-between',
-      paddingLeft: '2rem',
-    }
   })
   const styleMobileNavButton = css({
     alignItems: 'center',
-    marginLeft: 30,
+    margin: '.1rem 0 0 1.8rem',
     zIndex: 6,
     width: 36,
     height: 22,
@@ -53,7 +68,7 @@ export default function Navigation() {
     span: {
       display: 'block',
       position: 'absolute',
-      height: 2,
+      height: 1,
       width: '100%',
       background: 'var(--color-text)',
       opacity: 1,
@@ -87,28 +102,30 @@ export default function Navigation() {
       display: 'none',
     },
   })
-  const styleNavItems = css({
+
+  const styleNavIcon = css({
+    height: 16,
+    width: 16,
+    lineHeight: 0,
+    '@media(max-width: 768px)': {
+      height: 30,
+      width: 30,
+    }
+  })
+
+  const styleNavitem = css({
     position: 'relative',
     display: 'flex',
-    '.navItemWrapper': {
-      '&::after': {
-        content: '"/ "',
-        '@media(max-width: 768px)': {
-          display: 'none',
-        },
-      },
-      '&:last-of-type': {
-        '&::after': {
-          content: '""',
-        },
-      },
-    },
     a: {
       position: 'relative',
       color: 'var(--color-text)',
-      textDecoration: 'none',
       '&.active': {
-        textDecoration: 'underline',
+        '&::before': {
+          color: 'var(--color-primary)',
+          position: 'absolute',
+          content: '">"',
+          left: -10,
+        }
       },
       '@media (max-width: 768px)': {
         '&.active': {
@@ -120,57 +137,46 @@ export default function Navigation() {
         },
       },
     },
-    '.navIcon': {
-      marginTop: 1.2,
-      height: 16,
-      width: 16,
-      lineHeight: 0,
-      '@media(max-width: 768px)': {
-        marginTop: '.8rem',
-        height: 30,
-        width: 30,
-      }
-    },
     '@media(max-width: 768px)': {
       flexDirection: 'column',
-      alignItems: 'center',
-      fontSize: 'calc(3vw + 3vh)',
+      alignItems: 'flex-end',
+      fontSize: 18,
       WebkitMarqueeIncrement: '0vw',
-      lineHeight: '4rem',
+      lineHeight: '3rem',
     },
     '@media (max-width: 768px) and (max-height: 600px)': {
-      paddingRight: '2.5rem',
+      paddingRight: '1rem',
       alignItems: 'flex-end',
       lineHeight: '3rem',
     },
   })
   const styleMobileNavSecondary = css({
-    margin: '3rem 0',
-    fontSize: 12,
+    margin: '2rem 0',
     height: 80,
     display: 'flex',
     flexDirection: 'column-reverse',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'space-between',
     fontFamily: 'var(--font-secondary)',
     position: 'relative',
-    textAlign: 'center',
-    paddingTop: '1rem',
-    animation: 'slideUp .5s',
     a: {
       display: 'block',
       marginBottom: '.5rem',
       color: 'var(--color-neutral)',
-      textAlign: 'center',
-      animation: 'slideUp .8s ease',
+      textAlign: 'right',
     },
+    '@media (max-width: 768px) and (max-height: 600px)': {
+      display: 'none',
+    }
   })
 
   // Mobile Menu
   const [toggleDisableScrolling, setToggleDisableScrolling] = useState(false)
   const disableScroll = () => {
     setToggleDisableScrolling(!toggleDisableScrolling)
-    toggleDisableScrolling ? document.body.style.overflow = 'scroll' : document.body.style.overflow = 'hidden'
+    toggleDisableScrolling
+      ? document.body.style.overflow = 'scroll'
+      : document.body.style.overflow = 'hidden'
   }
   const [toggleMobileNav, setToggleMobileNav] = useState(false)
   const toggleMenu = () => {
@@ -179,25 +185,24 @@ export default function Navigation() {
   }
   const MobileMenu = () => (
     <div css={styleMobileNavWrapper}>
-      <NavItems />
+      <Navitem />
       <div css={styleMobileNavSecondary}>
         <Logo />
       </div>
+      <button
+        className="closeArea"
+        onClick={toggleMenu}
+      ></button>
     </div>
   )
 
-  const NavItems = () => (
-    <nav css={styleNavItems}>
-      {nav.map((items: any, index: number) => {
+  const Navitem = () => (
+    <nav css={styleNavitem}>
+      {nav.map((item: any, index: number) => {
         return (
-          <Link href={items.path} activeClassName="active" exact={items.exact} as="" key={index}>
-            <a onClick={toggleMobileNav ? toggleMenu : null} className={items.cName} aria-label={items.aria} target={items.target} rel="noopener noreferrer">
-              {items.icon
-                ?
-                  <div className="navIcon">
-
-                  </div>
-                : items.title}
+          <Link href={item.path} activeClassName="active" exact={item.exact} as="" key={index}>
+            <a onClick={toggleMobileNav ? toggleMenu : null} className={item.cName} aria-label={item.aria}>
+              {item.icon ? <div css={styleNavIcon}></div> : item.title}
             </a>
           </Link>
         )}
@@ -208,14 +213,13 @@ export default function Navigation() {
   return (
     <>
       <div css={styleMainNav}>
-        <NavItems />
+        <Navitem />
       </div>
       <button
         css={styleMobileNavButton}
         onClick={toggleMenu}
         className={toggleMobileNav ? 'open' : 'closed'}
-        aria-label="Navigation Menu"
-      >
+        aria-label="Navigation Menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
