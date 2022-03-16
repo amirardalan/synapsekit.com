@@ -47,10 +47,10 @@ export default function NftDetailNav({ assets, asset }) {
   })
 
   const renderPrevLink = () => {
-    if (hasPrev && navPointer < 9) {
+    if (hasPrev && navPointer < 10) {
       return '← .0'+navPointer+' Prev'
     }
-    if (hasPrev && navPointer >= 9) {
+    if (hasPrev && navPointer >= 10) {
       return '← .'+navPointer+' Prev'
     }
     if (!hasPrev) {
@@ -59,10 +59,10 @@ export default function NftDetailNav({ assets, asset }) {
   }
 
   const renderNextLink = () => {
-    if (hasNext && navPointer < 9) {
+    if (hasNext && navPointer < 10) {
       return 'Next .0'+(navPointer+1)+' →'
     }
-    if (hasNext && navPointer >= 9) {
+    if (hasNext && navPointer >= 10) {
       return 'Next .'+(navPointer+1)+' →'
     }
     if (!hasNext) {
