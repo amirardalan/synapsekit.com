@@ -36,15 +36,21 @@ export default function NftAsset({ asset }) {
     }
   })
 
+  const hasVideo = asset?.animation_url
+
   return (
     <div css={styleDetailWrapper}>
       <div css={styleDetailImage}>
+        {hasVideo ?
+        <video width={400} height={400} controls muted autoPlay>
+          <source src={asset.animation_url} type="video/mp4" />
+          </video> :
         <Image
           src={asset.image_url}
           alt={asset.name}
           width={400}
           height={400}
-        />
+        />}
       </div>
       <div css={styleInfoPanel}>
         <ul>

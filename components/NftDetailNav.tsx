@@ -32,8 +32,8 @@ export default function NftDetailNav({ assets, asset }) {
       fontSize: 12,
       textTransform: 'uppercase',
       span: {
-        fontSize: 18,
-        lineHeight: '.9rem',
+        fontSize: 16,
+        lineHeight: '.8rem',
         marginRight: '.2rem'
       }
     },
