@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { getNftAssets } from '@/lib/opensea'
 import Container from '@/components/Container'
 import NftDetail from '@/components/NftDetail'
-import NftDetailNav from '@/components/NftDetailNav'
 import { title } from '@/data/content'
 
 
@@ -25,8 +24,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Detail({ asset, assets }) {
   return (
     <Container title={`${title} - ${asset.name}`}>
-      <NftDetailNav asset={asset} assets={assets} />
-      <NftDetail asset={asset} />
+      <NftDetail asset={asset} assets={assets} />
     </Container>
   )
 }
