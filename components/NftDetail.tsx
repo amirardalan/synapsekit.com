@@ -21,8 +21,8 @@ export default function NftAsset({ asset, assets }) {
     if (!hasPrev) { return '* .00 Prev' }
   }
   const renderNextLink = () => {
-    if (hasNext && navPointer < 10) { return 'Next .0'+(navPointer+1)+' →' }
-    if (hasNext && navPointer >= 10) { return 'Next .'+(navPointer+1)+' →' }
+    if (hasNext && navPointer < 9) { return 'Next .0'+(navPointer+1)+' →' }
+    if (hasNext && navPointer >= 9) { return 'Next .'+(navPointer+1)+' →' }
     if (!hasNext) { return 'Next .00 *' }
   }
 
