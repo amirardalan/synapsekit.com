@@ -30,8 +30,8 @@ export default function NftAsset({ asset, assets }) {
   }
 
   const handlers = useSwipeable({
-    onSwipedRight: () => router.push('/'+handlePrev),
-    onSwipedLeft: () => router.push('/'+handleNext),
+    onSwipedRight: () => hasPrev ? router.push('/'+handlePrev) : null,
+    onSwipedLeft: () => hasNext ? router.push('/'+handleNext) : null,
     delta: 10,
     preventDefaultTouchmoveEvent: true,
     trackTouch: true,
