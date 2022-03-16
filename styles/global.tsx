@@ -131,7 +131,6 @@ export function GlobalStyles () {
         },
         'h1, h2, h3': {
           fontFamily: 'var(--font-secondary)',
-          fontWeight: 900
         },
         a: {
           cursor: 'pointer',

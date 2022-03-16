@@ -46,7 +46,7 @@ export const footer = {
     alt: 'SynaseKit'
   },
   copyright: {
-    text: 'Copyright ©',
+    text: 'Copyright © ',
     name: 'Amir Ardalan',
     link: 'https://amirardalan.com'
   },

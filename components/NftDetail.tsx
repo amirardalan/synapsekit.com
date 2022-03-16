@@ -119,6 +119,25 @@ export default function NftAsset({ asset, assets }) {
         fontSize: 12,
         lineHeight: '1.2rem'
       }
+    },
+    a: {
+      background: 'transparent',
+      color: 'var(--color)',
+      border: '1px solid var(--color)',
+      padding: '.2rem .4rem',
+      fontSize: 13,
+      textTransform: 'uppercase',
+      textDecoration: 'none',
+      '&:hover': {
+        background: 'var(--color)',
+        color: 'var(--color-bg)',
+        border: '1px solid var(--color)',
+      },
+      '&:after': {
+        content: '"↗"',
+        paddingLeft: '.2rem',
+        fontSize: 20,
+      }
     }
   })
 
