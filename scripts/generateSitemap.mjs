@@ -9,11 +9,6 @@ async function generate() {
     '.next/server/pages/**/*.html',
     '!.next/server/pages/404.html',
     '!.next/server/pages/500.html',
-    'pages/**/*{.tsx,.ts}',
-    '!pages/api',
-    '!pages/[slug].tsx',
-    '!pages/_*.tsx',
-    '!pages/404.tsx',
   ]);
 
   const sitemap = `
