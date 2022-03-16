@@ -23,7 +23,6 @@ export default function Home() {
   })
 
   const styleGridControls = css({
-    display: 'flex',
     justifyContent: 'flex-end',
     marginBottom: '1rem',
     button: {
@@ -39,6 +38,7 @@ export default function Home() {
       color: 'var(--color)',
     },
     '@media(max-width: 480px)': {
+      display: 'flex',
       '&.gridControls': {
         display: 'flex'
       },
@@ -53,6 +53,7 @@ export default function Home() {
     lineHeight: '1.2rem',
     '@media (max-width: 1024px)': {
       gridTemplateColumns: 'repeat(2, 1fr)',
+      gap: '2.5rem',
     },
     '@media (max-width: 480px)': {
       gap: '1rem',
