@@ -48,8 +48,7 @@ export default function Home() {
   const styleGridContainer = css({
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 4fr)',
-    gap: '4rem',
-    gridAutoRows: 'minmax(275px, auto)',
+    gap: '2.5rem',
     lineHeight: '1.2rem',
     '@media (max-width: 1024px)': {
       gridTemplateColumns: 'repeat(2, 1fr)',

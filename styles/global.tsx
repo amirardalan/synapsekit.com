@@ -129,9 +129,6 @@ export function GlobalStyles () {
           margin: 0,
           padding: 0,
         },
-        'h1, h2, h3': {
-          fontFamily: 'var(--font-secondary)',
-        },
         a: {
           cursor: 'pointer',
           margin: 0,

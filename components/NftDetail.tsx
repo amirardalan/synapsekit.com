@@ -74,9 +74,9 @@ export default function NftAsset({ asset, assets }) {
 
   const styleSwipeTip = css({
     display: 'none',
-    marginTop: '.5rem',
+    margin: '.5rem 0 1.5rem',
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 10,
     textTransform: 'uppercase',
     color: 'var(--color-neutral)',
     '@media(max-width: 768px)': {
@@ -160,7 +160,7 @@ export default function NftAsset({ asset, assets }) {
           </a>
         </Link>
       </div>
-      <div css={styleSwipeTip}>← Swipe →</div>
+      <div css={styleSwipeTip}>← Swipe to Navigate →</div>
       <div css={styleDetailWrapper}>
         <div css={styleDetailImage}>
           {hasVideo ?

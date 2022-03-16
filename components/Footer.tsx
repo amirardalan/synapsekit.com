@@ -10,9 +10,9 @@ export default function Footer() {
     padding: '4rem 4rem 1rem 4rem',
     '@media(max-width: 1024px)': {
       marginTop: '4rem',
-      padding: '3.5rem 2.5rem 1rem 2.5rem',
+      padding: '3.5rem 4rem 1rem 4rem',
     },
-    '@media(max-width: 480px)': {
+    '@media(max-width: 768px)': {
       padding: '3rem 1.5rem 1rem 1.5rem',
     }
   })
