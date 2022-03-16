@@ -21,8 +21,7 @@ export default function Container(props: any) {
     <>
       <Head>
         <title>{meta.title}</title>
-        {/* <meta name="robots" content={meta.robots} /> */}
-        <meta name="robots" content="noindex"/>
+        <meta name="robots" content={meta.robots} />
 
         <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`} />
         <link rel="canonical" href={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`} />

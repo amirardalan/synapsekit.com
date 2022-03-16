@@ -10,7 +10,7 @@ export const getStaticProps = async () => {
 export default function About({ data }) {
 
   return(
-    <Container title={data.meta.title} robots="noindex">
+    <Container title={data.meta.title}>
       <div>
         {about.content} <a href={about.link} target="_blank" rel="noopener, noreferrer">{about.user}</a>.
       </div>
