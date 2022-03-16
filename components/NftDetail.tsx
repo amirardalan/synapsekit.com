@@ -41,7 +41,7 @@ export default function NftAsset({ asset }) {
     }
   })
 
-  const hasVideo = asset?.animation_url && !asset?.animation_url.startsWith('https://ipfs.io') && !asset?.animation_url.endsWith('.glb')
+  const hasVideo = asset?.animation_url && asset?.animation_url.endsWith('.mp4')
 
   return (
     <div css={styleDetailWrapper}>
