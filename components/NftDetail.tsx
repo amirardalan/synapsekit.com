@@ -48,7 +48,7 @@ export default function NftAsset({ asset }) {
       <div css={styleDetailImage}>
         {hasVideo ?
         <div className="videoWrapper">
-          <video width="100%" height="100%" controls muted autoPlay loop webkit-playsinline playsInline>
+          <video width="100%" height="100%" controls muted autoPlay loop playsInline>
             <source src={asset.animation_url} type="video/mp4" />
           </video>
         </div> :

@@ -30,17 +30,6 @@ export default function NftDetailNav({ assets, asset }) {
         pointerEvents: 'none'
       },
     },
-    '.gridControls': {
-      display: 'flex',
-      alignItems: 'center',
-      fontSize: 12,
-      textTransform: 'uppercase',
-      span: {
-        fontSize: 17,
-        marginTop: -1,
-        marginRight: '.2rem'
-      }
-    },
     '.controls': {
       alignItems: 'center',
       display: 'flex',

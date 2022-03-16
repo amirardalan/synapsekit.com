@@ -166,9 +166,17 @@ export function GlobalStyles () {
         '.icon': {
           WebkitTransformStyle: 'preserve-3d',
         },
-        '#leva__root': {
-          display: 'none'
-        }
+        '.gridControls': {
+          display: 'flex',
+          alignItems: 'center',
+          fontSize: 12,
+          textTransform: 'uppercase',
+          span: {
+            fontSize: 17,
+            marginTop: -1,
+            marginRight: '.2rem'
+          }
+        },
       }} />
       <Global styles={{
         // Layout
