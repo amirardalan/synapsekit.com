@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { assert } from 'console'
 import Image from 'next/image'
 
 export default function NftAsset({ asset }) {
@@ -40,7 +41,7 @@ export default function NftAsset({ asset }) {
     }
   })
 
-  const hasVideo = asset?.animation_url
+  const hasVideo = asset?.animation_url && !asset?.animation_url.startsWith('https://ipfs.io') && !asset?.animation_url.endsWith('.glb')
 
   return (
     <div css={styleDetailWrapper}>

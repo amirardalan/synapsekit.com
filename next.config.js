@@ -13,7 +13,8 @@ module.exports = {
     domains: [
       // NFT Assets
       'lh3.googleusercontent.com',
-      'storage.opensea.io'
+      'storage.opensea.io',
+      'ipfs.io'
     ]
   }
 }
