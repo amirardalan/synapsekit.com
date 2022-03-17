@@ -7,7 +7,7 @@ An NFT Gallery built with Next.js and OpenSea. Designed, built, and maintained b
 [Next.js](https://github.com/vercel/next.js/)  
 [Emotion](https://github.com/emotion-js/emotion)  
 [OpenSea](https://docs.opensea.io/reference/api-overview)  
-[SWR](https://swr.vercel.app/)
+[SWR](https://swr.vercel.app/)  
 [react-swipeable](https://github.com/FormidableLabs/react-swipeable)
 
 ---
