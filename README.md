@@ -41,6 +41,8 @@ Optionally, create a local copy of a production build. (useful for testing `gene
 ```bash
 yarn build
 ```
+#### Note
+You will need to obtain an [Api Key](https://docs.opensea.io/reference/request-an-api-key) from OpenSea. If you don't get a response within 5 days, join the API-KEY-REQUEST channel in the [OpenSea Discord](https://discord.com/invite/opensea).
 
 ## Testing
 

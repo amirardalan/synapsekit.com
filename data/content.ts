@@ -12,8 +12,14 @@ export const about = {
   meta: {
     title: 'About – SynapseKit',
   },
-  content: `This is an open source project in progress. It uses the OpenSea API to pull down a user's collection of NFTs. This collection is not mine, these beautiful assets belong to`,
-  link: 'https://opensea.io/0xc2a0f075dfd4a8ce1b49cbbed8cfb1664b4e789b',
+  title: 'About',
+  titleRight: 'Info',
+  contentLeft: `This is an open source project in progress. It uses the OpenSea API to pull down a user's collection of NFTs. This collection is not mine, these beautiful assets belong to `,
+  linkLeft: 'https://opensea.io/0xc2a0f075dfd4a8ce1b49cbbed8cfb1664b4e789b',
+  contentRight: `Check out the `,
+  contentRight2: `code for this project`,
+  contentRight3: ` on Github.`,
+  linkRight: `https://github.com/amirardalan/synapsekit.com`,
   user: 'Unnamed'
 }
 

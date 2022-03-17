@@ -140,7 +140,7 @@ export function GlobalStyles () {
           fontSize: '100%',
           verticalAlign: 'baseline',
           background: 'transparent',
-          color: 'var(--color-link)',
+          color: 'var(--color)',
           textDecoration: 'underline',
           '&.externalLink:after': {
             marginLeft: '.3rem',
@@ -183,6 +183,13 @@ export function GlobalStyles () {
         '.siteWrapper': {
           margin: '0 auto',
           maxWidth: 1200,
+          minHeight: '88vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          '@media(max-width: 768px)': {
+            minHeight: '80vh',
+          }
         },
         '.container': {
           minHeight: '35vh',

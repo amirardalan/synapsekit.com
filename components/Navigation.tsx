@@ -1,4 +1,4 @@
-import { css, useTheme } from '@emotion/react'
+import { css } from '@emotion/react'
 import { useState } from 'react'
 import Link from '@/components/Link'
 import Logo from '@/components/Logo'
@@ -7,8 +7,6 @@ import { nav } from '@/data/navigation'
 
 export default function Navigation() {
   
-  const theme: any = useTheme()
-  const isDarkTheme = theme.active === 'dark'
   
   const styleMainNav = css({
     display: 'flex',
@@ -18,6 +16,7 @@ export default function Navigation() {
     a: {
       margin: '0 1.5rem',
       color: 'var(--color-text)',
+      textDecoration: 'none',
     },
     '@media(max-width: 768px)': {
       display: 'none',
