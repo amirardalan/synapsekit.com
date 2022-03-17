@@ -10,7 +10,8 @@ const dark = '#000000'
 const darkAccent = '#222222'
 const grayColor = '#a3a3a3'
 const warning = '#ec4949'
-const gradient = 'linear-gradient(to bottom, #000%,#555%,#fff 100%)'
+const gradientDark = 'linear-gradient(to bottom, #000 0%,#555 50%,#fff 100%)'
+const gradientLight = 'linear-gradient(to bottom, #fff 0%,#555 50%,#000 100%)'
 
 export function GlobalStyles () {
 
@@ -38,7 +39,7 @@ export function GlobalStyles () {
           '--color-bg': light,
           '--color-text': dark,
           '--color-accent': lightAccent,
-          '--color-gradient': gradient,
+          '--color-gradient': gradientDark,
         },
         
         'body[data-theme="dark"]': {
@@ -49,7 +50,7 @@ export function GlobalStyles () {
           '--color-bg': dark,
           '--color-text': light,
           '--color-accent': darkAccent,
-          '--color-gradient': gradient,
+          '--color-gradient': gradientDark,
         }
       }} />
       <Global styles={{

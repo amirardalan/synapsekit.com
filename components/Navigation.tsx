@@ -40,7 +40,7 @@ export default function Navigation() {
       opacity: '.80',
       height: '100%',
       width: 200,
-      background: 'var(--color)',
+      background: 'var(--color-gradient)',
       border: 'none',
       position: 'absolute',
       left: -200,
@@ -121,7 +121,7 @@ export default function Navigation() {
       color: 'var(--color-text)',
       '&.active': {
         '&::before': {
-          color: 'var(--color-primary)',
+          color: 'var(--color)',
           position: 'absolute',
           content: '">"',
           left: -10,
