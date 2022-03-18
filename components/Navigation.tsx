@@ -200,7 +200,7 @@ export default function Navigation() {
       {nav.map((item: any, index: number) => {
         return (
           <Link href={item.path} activeClassName="active" exact={item.exact} as="" key={index}>
-            <a onClick={toggleMobileNav ? toggleMenu : null} className={item.cName} aria-label={item.aria}>
+            <a onClick={toggleMobileNav ? toggleMenu : null} className={item.cName} aria-label={item.aria} tabIndex={0}>
               {item.icon ? <div css={styleNavIcon}></div> : item.title}
             </a>
           </Link>

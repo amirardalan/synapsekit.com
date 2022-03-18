@@ -123,8 +123,16 @@ export function GlobalStyles () {
           padding: 0,
           boxSizing: 'border-box',
           '&:before, &:after': {
-              boxSizing: 'border-box',
+            boxSizing: 'border-box',
           },
+          '&:focus': {
+            boxShadow: '0 0 0 2px var(--color-primary)',
+            '@media(max-width: 480px)': {
+              boxShadow: 'none',
+              outline: 'none'
+            }
+          },
+          '&:focus:not(:focus-visible)': { boxShadow: 'none' },
         },
         title: {
           margin: 0,
