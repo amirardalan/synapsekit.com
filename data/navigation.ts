@@ -20,11 +20,11 @@ export const nav = [
     icon: false
   },
   {
-    title: '@synapsekit',
-    path: 'https://twitter.com/synapsekit',
+    title: 'github',
+    path: 'https://github.com/amirardalan/synapsekit.com',
     exact: '',
-    cName: 'twitterNav',
-    aria: '@synapsekit Twitter',
+    cName: 'githubNav',
+    aria: 'View on GitHub',
     target: '_blank',
     icon: false
   }

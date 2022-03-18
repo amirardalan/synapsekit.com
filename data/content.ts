@@ -14,13 +14,21 @@ export const about = {
   },
   title: 'About',
   titleRight: 'Info',
-  contentLeft: `This is an open source project in progress. It uses the OpenSea API to pull down a user's collection of NFTs. This collection is not mine, these beautiful assets belong to `,
+  contentLeft: `
+  This is an open source project built and maintained by Amir Ardalan.
+  It uses the OpenSea API to pull down a user's collection of NFTs.
+  `,
+  contentLeft2: `**The NFT assets used for this project are not owned by me, they belong to `,
+  user: 'Unnamed',
   linkLeft: 'https://opensea.io/0xc2a0f075dfd4a8ce1b49cbbed8cfb1664b4e789b',
-  contentRight: `Check out the `,
-  contentRight2: `code for this project`,
-  contentRight3: ` on Github.`,
+  contentRight: `View this project's code on `,
+  contentRight2: `GitHub`,
   linkRight: `https://github.com/amirardalan/synapsekit.com`,
-  user: 'Unnamed'
+  author: 'More of my work: ',
+  authorLink: 'amirardalan.com',
+  twitterText: 'Let me know what you think: ',
+  twitterHandle: '@amirardalan',
+  twitterLink: 'https://twitter.com/amirardalan'
 }
 
 export const nft= {

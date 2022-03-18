@@ -141,9 +141,9 @@ export function GlobalStyles () {
           textDecoration: 'underline',
         },
         p: {
-          margin: 0,
+          margin: '0 0 .6rem 0',
           padding: 0,
-          lineHeight: '1.8rem',
+          lineHeight: '1.4rem',
         },
         'ul, li': {
           listStyle: 'none',

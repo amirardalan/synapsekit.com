@@ -46,6 +46,11 @@ export default function About() {
       '@media(max-width: 768px)': {
         marginBottom: '2rem'
       },
+      '&.right p': {
+        '&:before': {
+          content: '"> "'
+        }
+      }
     }
   })
 
@@ -56,28 +61,54 @@ export default function About() {
           <div className="contentWrapper">
             <h1>{about.title}</h1>
             <div className="contentContainer">
-              {about.contentLeft}
-              <a
-                href={about.linkLeft}
-                target="_blank"
-                rel="noopener, noreferrer"
-              >
-                {about.user}
-              </a>.
+              <p>{about.contentLeft}</p>
+              <p>
+                {about.contentLeft2}
+                <a
+                  href={about.linkLeft}
+                  target="_blank"
+                  rel="noopener, noreferrer"
+                >
+                  {about.user}
+                </a>.
+              </p>
             </div>
           </div>
           <div className="contentWrapper">
             <h2>{about.titleRight}</h2>
-            <div className="contentContainer">
-              {about.contentRight}
-              <a
-                href={about.linkRight}
-                target="_blank"
-                rel="noopener, noreferrer"
-              >
-                {about.contentRight2}
-              </a>
-              {about.contentRight3}
+            <div className="contentContainer right">
+              <p>
+                {about.contentRight}
+                <a
+                  href={about.linkRight}
+                  target="_blank"
+                  rel="noopener, noreferrer"
+                >
+                  {about.contentRight2}
+                </a>.
+              </p>
+              <p>
+                {about.author}
+                <a
+                  href={`https://`+about.authorLink}
+                  aria-label={about.authorLink}
+                  target="_blank"
+                  rel="noopener, noreferrer"
+                >
+                  {about.authorLink}
+                </a>
+              </p>
+              <p>
+                {about.twitterText}
+                <a
+                  href={about.twitterLink}
+                  aria-label={about.authorLink}
+                  target="_blank"
+                  rel="noopener, noreferrer"
+                  >
+                  {about.twitterHandle}
+                </a>
+              </p>
             </div>
           </div>
         </div>
