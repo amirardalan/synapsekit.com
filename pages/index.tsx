@@ -33,7 +33,7 @@ export default function Home() {
       boxShadow: 'none',
       cursor: 'pointer',
       textTransform: 'uppercase',
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: '1rem',
       color: 'var(--color)',
     },
@@ -67,14 +67,9 @@ export default function Home() {
     <Container title={home.meta.title}>
       <div css={styleGridControls} className="gridControls hide">
         <button onClick={()=> handleGridToggle()}>
-          {toggleGridView ?
-          <div className="grid">
-            <span>⊞</span>Grid
-          </div> :
-          <div className="full">
-            <span>⊡</span>Full
-          </div>
-          }
+          {toggleGridView
+          ? <div className="grid">Grid</div>
+          : <div className="full">Full</div>}
         </button>
       </div>
       <main css={styleHome}>

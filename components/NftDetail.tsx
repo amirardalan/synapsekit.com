@@ -29,7 +29,7 @@ export default function NftAsset({ asset, assets }) {
     if (!hasNext) { return 'Next .00 *' }
   }
 
-  const handlers = useSwipeable({
+  const swipeHandlers = useSwipeable({
     onSwipedRight: () => hasPrev ? router.push('/'+handlePrev) : null,
     onSwipedLeft: () => hasNext ? router.push('/'+handleNext) : null,
     delta: 10,
@@ -39,36 +39,22 @@ export default function NftAsset({ asset, assets }) {
     rotationAngle: 0,
   })
 
-  const styleDetailNavWrapper = css({
+  const styleDetailNav = css({
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    fontSize: 12,
+    textTransform: 'uppercase',
     borderBottom: '1px solid var(--color)',
     paddingBottom: '1.4rem',
     '@media(max-width: 1024px)': {
       paddingBottom: '.4rem',
     },
     a: {
-      display: 'flex',
       textDecoration: 'none',
       '&.disabled': {
         color: 'var(--color-neutral)',
         pointerEvents: 'none'
       },
-    },
-    '.controls': {
-      alignItems: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      lineHeight: '.6rem',
-      fontSize: 8,
-      color: 'var(--color-neutral)',
-      div: {
-        fontSize: 18,
-      },
-      '@media(max-width: 1024px)': {
-        display: 'none',
-      }
     },
   })
 
@@ -84,7 +70,7 @@ export default function NftAsset({ asset, assets }) {
     }
   })
 
-  const styleDetailWrapper = css({
+  const styleDetail = css({
     marginTop: '2rem',
     display: 'flex',
     flexDirection: 'row',
@@ -142,17 +128,15 @@ export default function NftAsset({ asset, assets }) {
   })
 
   return (
-    <div {...handlers}>
-      <div css={styleDetailNavWrapper}>
+    <div {...swipeHandlers}>
+      <div css={styleDetailNav} className="gridControls">
         <Link href={'/'+handlePrev}>
           <a className={'prev '+displayPrev} aria-label="Previous">
           {renderPrevLink()}
           </a>
         </Link>
         <Link href='/'>
-          <a className="gridControls" aria-label="Home">
-            <span>⊞</span> Grid
-          </a>
+          <a className="grid" aria-label="Home">Grid</a>
         </Link>
         <Link href={'/'+handleNext}>
           <a className={'next '+displayNext} aria-label="Next">
@@ -161,7 +145,7 @@ export default function NftAsset({ asset, assets }) {
         </Link>
       </div>
       <div css={styleSwipeTip}>← Swipe to Navigate →</div>
-      <div css={styleDetailWrapper}>
+      <div css={styleDetail}>
         <div css={styleDetailImage}>
           {hasVideo ?
           <div className="videoWrapper">

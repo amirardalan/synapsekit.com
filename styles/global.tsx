@@ -1,9 +1,7 @@
 import { Global } from '@emotion/react'
 
-// Typography
 const fontPrimary = '"JetBrains Mono", Menlo, Monaco, "Courier New", monospace'
 
-// Colors
 const light = '#ffffff'
 const lightAccent = '#ededed'
 const dark = '#000000'
@@ -11,14 +9,12 @@ const darkAccent = '#222222'
 const grayColor = '#a3a3a3'
 const warning = '#ec4949'
 const gradientDark = 'linear-gradient(to bottom, #000 0%,#555 50%,#fff 100%)'
-const gradientLight = 'linear-gradient(to bottom, #fff 0%,#555 50%,#000 100%)'
 
 export function GlobalStyles () {
 
   return (
     <>
       <Global styles={{
-        // @font: JetBrains Mono 400
         '@font-face': {
           fontFamily: 'JetBrains Mono',
           fontStyle: 'normal',
@@ -30,6 +26,8 @@ export function GlobalStyles () {
       <Global styles={{
         'body, body[data-theme="light"], body[data-theme="dark"]': {
           '--font-primary': fontPrimary,
+          '--color-light': light,
+          '--color-dark': dark
         },
         'body, body[data-theme="light"]': {
           '--logo': 'url(/logo/logo-light.svg)',
@@ -40,6 +38,8 @@ export function GlobalStyles () {
           '--color-text': dark,
           '--color-accent': lightAccent,
           '--color-gradient': gradientDark,
+          '--icon-grid': 'url(icons/grid-light.svg)',
+          '--icon-full': 'url(icons/full-light.svg)',
         },
         
         'body[data-theme="dark"]': {
@@ -51,6 +51,8 @@ export function GlobalStyles () {
           '--color-text': light,
           '--color-accent': darkAccent,
           '--color-gradient': gradientDark,
+          '--icon-grid': 'url(icons/grid-dark.svg)',
+          '--icon-full': 'url(icons/full-dark.svg)',
         }
       }} />
       <Global styles={{
@@ -123,11 +125,6 @@ export function GlobalStyles () {
           '&:before, &:after': {
               boxSizing: 'border-box',
           },
-          '&:focus': {
-            boxShadow: '0 0 0 2px var(--color-accent-color)',
-            outline: 'none',
-          },
-          '&:focus:not(:focus-visible)': { boxShadow: 'none' },
         },
         title: {
           margin: 0,
@@ -142,13 +139,6 @@ export function GlobalStyles () {
           background: 'transparent',
           color: 'var(--color)',
           textDecoration: 'underline',
-          '&.externalLink:after': {
-            marginLeft: '.3rem',
-            content: '""',
-            background: 'var(--icon-external-link) no-repeat',
-            height: 12,
-            width: 12,
-          },
         },
         p: {
           margin: 0,
@@ -160,21 +150,24 @@ export function GlobalStyles () {
           margin: 0,
           padding: 0,
         },
-        'button, input, textarea': {
+        button: {
           fontFamily: 'var(--font-primary)'
         },
-        '.icon': {
-          WebkitTransformStyle: 'preserve-3d',
-        },
         '.gridControls': {
-          display: 'flex',
-          alignItems: 'center',
-          fontSize: 12,
-          textTransform: 'uppercase',
-          span: {
-            fontSize: 17,
-            marginTop: -1,
-            marginRight: '.2rem'
+          '.grid:before, .full:before': {
+            content: '""',
+            display: 'inline-block',
+            marginRight: '.3rem',
+            width: 9,
+            height: 9,
+          },
+          '.grid:before': {
+            background: 'var(--icon-grid) no-repeat',
+            backgroundSize: 'contain',
+          },
+          '.full:before': {
+            background: 'var(--icon-full) no-repeat',
+            backgroundSize: 'contain',
           }
         },
       }} />
@@ -230,56 +223,6 @@ export function GlobalStyles () {
           color: 'var(--color-bg)',
         },
       }} />
-      <Global styles={{
-        // Animation
-        '.animationWrapper':{
-          width: '100%',
-          overflow: 'hidden',
-          alignSelf: 'flex-end',
-        },
-        '@keyframes fadeIn': {
-          from: { opacity: 0 },
-          to: { opacity: 1 }
-        },
-        '@keyframes fadeOut': {
-          from: { opacity: 1 },
-          to: { opacity: 0 }
-        },
-        '@keyframes slideUp': {
-          from: {
-            opacity: 0,
-            transform: 'translate3d(0, 100%, 0)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translate3d(0, 0, 0)',
-          }
-        },
-        '@keyframes slideDown': {
-          from: {
-            opacity: 0,
-            transform: 'translate3d(0, -100%, 0)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translate3d(0, 0, 0)',
-          }
-        },
-        '@keyframes dash': {
-          '0%': {
-            strokeDasharray: '1, 150',
-            strokeDashoffset: '0',
-          },
-          '50%': {
-            strokeDasharray: '90, 150',
-            strokeDashoffset: '-35',
-          },
-          '100%': {
-            strokeDasharray: '90, 150',
-            strokeDashoffset: '-124',
-          }
-        }
-      }}/>
     </>
   )
 }

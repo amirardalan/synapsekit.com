@@ -32,6 +32,9 @@ export default function NftAsset(asset: any) {
       lineHeight: '1rem',
       fontSize: 12,
     },
+    '.assetName': {
+      color: 'var(--color-light)',
+    },
     '.assetNameMobile': {
       display: 'none',
       padding: 0,
