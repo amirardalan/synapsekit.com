@@ -40,7 +40,9 @@ export default function About() {
     },
     '.contentContainer': {
       borderTop: '1px solid var(--color)',
+      marginTop: '1rem',
       paddingTop: '1rem',
+      fontSize: 13,
       '@media(max-width: 768px)': {
         marginBottom: '2rem'
       },
@@ -69,7 +71,7 @@ export default function About() {
             <div className="contentContainer">
               {about.contentRight}
               <a
-                href={about.linkLeft}
+                href={about.linkRight}
                 target="_blank"
                 rel="noopener, noreferrer"
               >
