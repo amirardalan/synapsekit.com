@@ -5,20 +5,20 @@ import NftDetail from '@/components/NftDetail'
 import { title } from '@/data/content'
 
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const assets = await getNftAssets()
-  const paths = assets.map((asset: any) => ({ 
-    params: { slug: asset.slug},
-  }))
-  return { paths, fallback: false }
-}
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const assets = await getNftAssets()
   const currentAsset = assets.findIndex((x: { slug: Array<string> }) => x.slug === params.slug)
   const assetArr = assets
   const asset = assets[currentAsset]
-  return { props: { asset: asset, assets: assetArr } }
+  return { props: { asset: asset, assets: assetArr }, revalidate: 43200  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const assets = await getNftAssets()
+  const paths = assets.map((asset: any) => ({ 
+    params: { slug: asset.slug},
+  }))
+  return { paths, fallback: 'blocking'}
 }
 
 export default function Detail({ asset, assets }) {

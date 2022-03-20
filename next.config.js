@@ -14,7 +14,8 @@ module.exports = {
       // NFT Assets
       'lh3.googleusercontent.com',
       'storage.opensea.io',
-      'ipfs.io'
+      'ipfs.io',
+      'openseauserdata.com'
     ]
   }
 }
