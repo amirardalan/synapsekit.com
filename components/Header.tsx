@@ -3,7 +3,6 @@ import Navigation  from '@/components/Navigation'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
 
-import { GetStaticProps } from 'next'
 import dynamic from 'next/dynamic'
 
 const ThemeToggle = dynamic(() => import('@/components/ThemeToggle'), {
@@ -59,7 +58,8 @@ const Header = ({ toggleTheme }) => {
   const styleControlsWrapper = css({
     display: 'flex',
     justifyContent: 'right',
-    '.styleControls': {
+    '.mainNav': {
+      minWidth: 426.4,
       height: 25,
       display: 'flex',
       flexDirection: 'row',
@@ -86,7 +86,7 @@ const Header = ({ toggleTheme }) => {
       </div>
 
       <div css={styleControlsWrapper}>
-        <div className="styleControls">
+        <div className="mainNav">
           <Navigation />
           <ThemeToggle toggleTheme={toggleTheme} />
         </div>
