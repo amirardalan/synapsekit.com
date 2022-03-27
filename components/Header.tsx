@@ -64,6 +64,7 @@ const Header = ({ toggleTheme }) => {
       display: 'flex',
       flexDirection: 'row',
       '@media (max-width: 768px)': {
+        minWidth: 0,
         flexDirection: 'row-reverse',
       },
     }
