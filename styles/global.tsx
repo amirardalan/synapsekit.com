@@ -158,8 +158,17 @@ export function GlobalStyles () {
           margin: 0,
           padding: 0,
         },
-        button: {
+        'button, input, textarea': {
           fontFamily: 'var(--font-primary)'
+        },
+        button: {
+          background: 'transparent',
+          border: 'none',
+          fontFamily: 'inherit',
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
+          color: 'var(--color-primary)',
+          cursor: 'pointer',
         },
         '.gridControls': {
           '.grid:before, .full:before': {
@@ -208,6 +217,17 @@ export function GlobalStyles () {
             '@media (max-width: 768px)': {
               fontSize: 24,
             },
+          },
+          '@media(max-width: 1024px)': {
+            padding: '0 2.5rem',
+            '.pageHeading': {
+              marginBottom: '1.5rem',
+              fontSize: 30,
+            }
+          },
+          '@media (max-width: 600px)': {
+            marginTop: '.5rem',
+            padding: '0 1.5rem',
           },
         }
       }} />

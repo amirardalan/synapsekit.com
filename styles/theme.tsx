@@ -1,7 +1,13 @@
 export const themeLight = {
-  active: 'light'
+  active: 'light',
+  icons: {
+    close: '/icons/close-light.svg',
+  }
 }
 
 export const themeDark = {
-  active: 'dark'
+  active: 'dark',
+  icons: {
+    close: '/icons/close-dark.svg',
+  }
 }

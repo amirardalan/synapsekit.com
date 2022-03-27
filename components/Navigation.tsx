@@ -1,11 +1,14 @@
-import { css } from '@emotion/react'
+import { css, useTheme } from '@emotion/react'
 import { useState } from 'react'
 import Link from '@/components/Link'
 import Logo from '@/components/Logo'
+import Image from 'next/image'
 import { nav } from '@/data/navigation'
 
 
 export default function Navigation() {
+
+  const theme: any = useTheme()
   
   
   const styleMainNav = css({
@@ -55,51 +58,35 @@ export default function Navigation() {
     },
   })
   const styleMobileNavButton = css({
-    alignItems: 'center',
-    margin: '.1rem 0 0 1.8rem',
-    zIndex: 6,
-    width: 36,
-    height: 22,
-    background: 'transparent',
-    border: 'none',
-    transform: 'rotate(0deg)',
-    cursor: 'pointer',
-    span: {
-      display: 'block',
-      position: 'absolute',
-      height: 1,
-      width: '100%',
-      background: 'var(--color-text)',
-      opacity: 1,
-      left: 0,
-      transform: 'rotate(0deg)',
-      transition: '.25s ease-in-out',
-      '&:nth-of-type(1)': { top: 0, },
-      '&:nth-of-type(2)': { top: 10, },
-      '&:nth-of-type(3)': { top: 10, },
-      '&:nth-of-type(4)': { top: 20, }
+    display: 'none',
+    zIndex: 2,
+    marginLeft: '2rem',
+    '.menuOpen': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 28,
+      width: 28,
+      textTransform: 'uppercase',
+      textAlign: 'center',
+      fontSize: 9,
+      boxShadow: 'inset 0 0 0 1px var(--color-text)',
+      borderRadius: 20,
+      '&:active': {
+        background: 'var(--color-text)',
+        color: 'var(--color-bg)',
+      }
     },
-    '&.open': {
-      'span:nth-of-type(1)': {
-        top: 10,
-        width: 0,
-        left: '50%',
-      },
-      'span:nth-of-type(2)': {
-        transform: 'rotate(45deg)',
-      },
-      'span:nth-of-type(3)': {
-        transform: 'rotate(-45deg)',
-      },
-      'span:nth-of-type(4)': {
-        top: 14,
-        width: '0%',
-        left: '50%',
-      },
+    '.menuClose': {
+      display: 'flex',
+      alignItems: 'right',
+      justifyContent: 'flex-end',
+      animation: 'spin 1s forwards'
     },
-    '@media(min-width: 769px)': {
-      display: 'none',
-    },
+    '@media(max-width: 768px)': {
+      display: 'flex',
+      justifyContent: 'right',
+    }
   })
 
   const styleNavIcon = css({
@@ -120,10 +107,15 @@ export default function Navigation() {
       color: 'var(--color-text)',
       '&.active': {
         '&::before': {
-          color: 'var(--color)',
+          color: 'var(--color-neutral)',
           position: 'absolute',
           content: '">"',
-          left: -10,
+          top: 1,
+          left: -11,
+          '@media(max-width: 768px)': {
+            top: -10,
+            left: -20,
+          }
         }
       },
       '@media (max-width: 768px)': {
@@ -217,12 +209,21 @@ export default function Navigation() {
       <button
         css={styleMobileNavButton}
         onClick={toggleMenu}
-        className={toggleMobileNav ? 'open' : 'closed'}
+        className={toggleMobileNav ? 'open' : null}
         aria-label="Navigation Menu">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+        {toggleMobileNav
+          ? <div className="menuClose">
+              <Image
+                src={theme.icons.close}
+                width={28}
+                height={28}
+                priority
+                alt="Close menu"
+                aria-label="close menu"
+                draggable={false}
+              />
+            </div>
+          : <div className="menuOpen">•••</div>}
       </button>
       { toggleMobileNav ? <MobileMenu /> : null }
     </>

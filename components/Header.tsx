@@ -20,27 +20,34 @@ const Header = ({ toggleTheme }) => {
     top: '-2rem',
     backgroundColor: 'var(--color-bg)',
     zIndex: 5,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    textAlign: 'left',
-    '@media(max-width: 768px)': {
-      padding: '0 1.5rem',
+    '.excludeInHeader': {
+      display: 'none',
+    },
+    '@media(max-width: 1024px)': {
+      padding: '0 2.5rem',
       top: 0,
     },
+    '@media(max-width: 600px)': {
+      padding: '0 1.5rem',
+    }
   })
 
-  const styleTitle = css({
-    padding: '.8rem 0',
+  const styleHeader = css({
+    paddingBottom: '1rem',
+    paddingTop: '1rem',
     height: 'auto',
-    justifyContent: 'left',
+    display: 'flex',
+    justifyContent: 'space-between',
     a:  { textDecoration: 'none' },
-    '.siteDescription': {
-      marginTop: '.5rem',
-      color: 'var(--color-neutral)',
-      fontSize: 10,
-      transition: '0.2s',
+    '.headerRight': {
+      minWidth: '395.2px',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      '@media (max-width: 768px)': {
+        flexDirection: 'row-reverse',
+        minWidth: 'unset',
+      }
     }
   })
 
@@ -55,47 +62,25 @@ const Header = ({ toggleTheme }) => {
     cursor: 'pointer',
   })
 
-  const styleControlsWrapper = css({
-    display: 'flex',
-    justifyContent: 'right',
-    '.mainNav': {
-      minWidth: 426.4,
-      height: 25,
-      display: 'flex',
-      flexDirection: 'row',
-      '@media (max-width: 768px)': {
-        minWidth: 0,
-        flexDirection: 'row-reverse',
-      },
-    }
-  })
 
   return (
-    <div css={styleHeaderWrapper}>
-
-      <div css={styleTitle}>
+    <header css={styleHeaderWrapper}>
+      <div css={styleHeader}>
         <Link
           href="/"
-          aria-label="Synapse Kit"
+          aria-label="SynapseKit"
           passHref
         >
           <button css={styleLogoButton}>
-            <Logo />
+            <Logo /> 
           </button>
         </Link>
-
-      </div>
-
-      <div css={styleControlsWrapper}>
-        <div className="mainNav">
+        <div className="headerRight">
           <Navigation />
           <ThemeToggle toggleTheme={toggleTheme} />
         </div>
-
       </div>
-
-
-    </div>
+    </header>
   )
 
 }
