@@ -62,52 +62,19 @@ export default function About() {
             <h1>{about.title}</h1>
             <div className="contentContainer">
               <p>{about.contentLeft}</p>
-              <p>
-                {about.contentLeft2}
-                <a
-                  href={about.linkLeft}
-                  target="_blank"
-                  rel="noopener, noreferrer"
-                >
-                  {about.user}
-                </a>.
-              </p>
             </div>
           </div>
           <div className="contentWrapper">
             <h2>{about.titleRight}</h2>
             <div className="contentContainer right">
               <p>
-                {about.contentRight}
                 <a
                   href={about.linkRight}
                   target="_blank"
                   rel="noopener, noreferrer"
                 >
-                  {about.contentRight2}
+                  {about.github}
                 </a>.
-              </p>
-              <p>
-                {about.author}
-                <a
-                  href={`https://`+about.authorLink}
-                  aria-label={about.authorLink}
-                  target="_blank"
-                  rel="noopener, noreferrer"
-                >
-                  {about.authorLink}
-                </a>
-              </p>
-              <p>
-                {about.twitterText}
-                <a
-                  href={about.twitterLink}
-                  aria-label={about.authorLink}
-                  target="_blank"
-                  rel="noopener, noreferrer"
-                  >
-                  {about.twitterHandle}
-                </a>
               </p>
             </div>
           </div>
