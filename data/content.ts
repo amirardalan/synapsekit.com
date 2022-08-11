@@ -15,7 +15,7 @@ export const about = {
   title: 'About',
   titleRight: 'Info',
   contentLeft: `
-  An open-source NFT Gallery experiment.
+  An OpenSea API NFT Gallery code experiment. **Assets are not mine**
   `,
   github: `GitHub`,
   linkRight: `https://github.com/amirardalan/synapsekit.com`,
