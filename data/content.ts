@@ -15,20 +15,10 @@ export const about = {
   title: 'About',
   titleRight: 'Info',
   contentLeft: `
-  This is an open source project built and maintained by Amir Ardalan.
-  It uses the OpenSea API to pull down a user's collection of NFTs.
+  An OpenSea API NFT Gallery code experiment. **Assets are not mine**
   `,
-  contentLeft2: `**The NFT assets used for this project are not owned by me, they belong to `,
-  user: 'Unnamed',
-  linkLeft: 'https://opensea.io/0xc2a0f075dfd4a8ce1b49cbbed8cfb1664b4e789b',
-  contentRight: `View this project's code on `,
-  contentRight2: `GitHub`,
+  github: `GitHub`,
   linkRight: `https://github.com/amirardalan/synapsekit.com`,
-  author: 'More of my work: ',
-  authorLink: 'amirardalan.com',
-  twitterText: 'Let me know what you think: ',
-  twitterHandle: '@amirardalan',
-  twitterLink: 'https://twitter.com/amirardalan'
 }
 
 export const nft= {
@@ -60,7 +50,7 @@ export const footer = {
     alt: 'SynaseKit'
   },
   copyright: {
-    text: 'Copyright © ',
+    text: '©',
     name: 'Amir Ardalan',
     link: 'https://amirardalan.com'
   },
