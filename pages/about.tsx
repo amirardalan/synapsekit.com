@@ -76,6 +76,16 @@ export default function About() {
                   {about.github}
                 </a>.
               </p>
+              <p>
+                {about.assets}
+                <a
+                  href={about.linkRight2}
+                  target="_blank"
+                  rel="noopener, noreferrer"
+                >
+                  {about.owner}
+                </a>.
+              </p>
             </div>
           </div>
         </div>
