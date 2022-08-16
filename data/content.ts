@@ -13,9 +13,9 @@ export const about = {
     title: 'About – SynapseKit',
   },
   title: 'About',
-  titleRight: 'Info',
+  titleRight: 'Code',
   contentLeft: `
-  An OpenSea API NFT Gallery code experiment. **Assets are not mine**
+  A minimalist NFT gallery with basic touch controls. Built with Next.js, TypeScript, SWR, and the OpenSea API. Display a collection of NFTs based on public wallet address. Assets automatically update as they are collected, no build is required.
   `,
   github: `GitHub`,
   linkRight: `https://github.com/amirardalan/synapsekit.com`,
