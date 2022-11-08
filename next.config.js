@@ -15,7 +15,8 @@ module.exports = {
       'lh3.googleusercontent.com',
       'storage.opensea.io',
       'ipfs.io',
-      'openseauserdata.com'
+      'openseauserdata.com',
+      'i.seadn.io' // OpenSea
     ]
   }
 }
