@@ -7,8 +7,7 @@ import { title } from '@/data/content'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const assets = await getNftAssets()
-  console.log(assets)
-  const currentAsset = assets.findIndex((x: { slug: Array<any> }) => x.slug === params.slug)
+  const currentAsset = assets.findIndex((x: { slug: string | string[] }) => x.slug === params.slug)
   const assetArr = assets
   const asset = assets[currentAsset]
   return { props: { asset: asset, assets: assetArr }, revalidate: 43200  }

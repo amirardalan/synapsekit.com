@@ -20,8 +20,8 @@ export const about = {
   github: `GitHub`,
   linkRight: `https://github.com/amirardalan/synapsekit.com`,
   assets: `Demo assets owned by `,
-  owner: `Microbians`,
-  linkRight2: `https://opensea.io/microbians?tab=collected`
+  owner: `zltnxyz`,
+  linkRight2: `https://opensea.io/zltnxyz`
 }
 
 export const nft= {

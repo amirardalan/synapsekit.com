@@ -9,6 +9,7 @@ module.exports = {
         : null,
     ].filter(Boolean);
   },
+  dangerouslyAllowSVG: true,
   images: {
     protocol: "https",
     hostname: "**",
