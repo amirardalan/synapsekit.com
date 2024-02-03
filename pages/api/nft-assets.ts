@@ -7,7 +7,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const response = await getApiRoute()
   const items = await response.json()
 
-  const data = items.assets.map(({ id, image_url, animation_url, name, description, permalink, collection, num_sales }) => ({
+  const data = items.nfts.map(({ id, image_url, animation_url, name, description, permalink, collection, num_sales }) => ({
     ["slug"]: generateSlug(name),
     ["id"]: id,
     ["image_url"]: image_url,
