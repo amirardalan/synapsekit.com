@@ -11,7 +11,7 @@ export default function NftCollection() {
     return null
   }
 
-  return data.map((asset: { id: number }) => (
-    <NftAsset key={asset.id} {...asset} />
+  return data.map((asset: { id: number, name: string }) => (
+    <NftAsset key={asset.id + asset.name} {...asset} />
   ))
 }
