@@ -7,17 +7,16 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const response = await getApiRoute()
   const items = await response.json()
 
-  const data = items.nfts.map(({ id, image_url, animation_url, name, description, permalink, collection, num_sales }) => ({
+  const data = items.nfts.map(({ identifier, image_url, animation_url, name, description, opensea_url, collection, updated_at }) => ({
     ["slug"]: generateSlug(name),
-    ["id"]: id,
+    ["id"]: identifier,
     ["image_url"]: image_url,
-    ["animation_url"]: animation_url,
+    ["animation_url"]: animation_url ?? image_url,
     ["name"]: name,
     ["description"]: description,
-    ["permalink"]: permalink,
-    ["collection"]: collection.name,
-    ["created_date"]: collection.created_date,
-    ["num_sales"]: num_sales
+    ["permalink"]: opensea_url,
+    ["collection"]: collection,
+    ["created_date"]: updated_at,
   }))
 
   res.setHeader(
